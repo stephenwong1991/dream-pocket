@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>登陆框</title>
+    <style>
+      #login {
+        position: fixed;
+        left: 100px;
+        top: 100px;
+        padding: 10px;
+      }
+      #wrapper {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 300px;
+        height: 150px;
+        padding: 10px;
+        text-align: center;
+        line-height: 30px;
+        background: #ccc;
+        border: 1px solid #ccc;
+        opacity: 0;
+        transform: translate(-50%, -50%) perspective(800px) rotateX(0deg)
+          scale(5);
+        transition: 1s all ease;
+        visibility: hidden;
+      }
+      #close {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="login">快点我!</button>
+    <div id="wrapper">
+      <div>
+        <label>user:<input type="text" /></label>
+      </div>
+      <div>
+        <label>pass:<input type="password" /></label>
+      </div>
+      <button>登陆</button>
+      <span id="close">×</span>
+    </div>
+  </body>
+  <script>
+    const login = document.getElementById("login");
+    const wrapper = document.getElementById("wrapper");
+    const closeBtn = document.getElementById("close");
+
+    login.onclick = () => {
+      wrapper.style.transform =
+        "translate(-50%, -50%) perspective(800px) rotateX(360deg) scale(1)";
+      wrapper.style.opacity = 1;
+      wrapper.style.visibility = 'visible';
+    };
+
+    closeBtn.onclick = () => {
+      wrapper.style.transform =
+        "translate(-50%, -50%) perspective(800px) rotateX(0deg) scale(5)";
+      wrapper.style.opacity = 0;
+      wrapper.style.visibility = 'hidden';
+    };
+  </script>
+</html>
